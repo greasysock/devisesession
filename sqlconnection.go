@@ -30,7 +30,7 @@ func NewSqlUser(username string, password string) (user SqlUser, err error){
 func NewSqlConnection(address string, port int16, db_name string, sql_user SqlUser, auth_table_name string, db_type ServerType) (con SqlConnection, err error){
 	var c SqlConnection
 	switch db_type{
-	case sqlite:
+	case Sqlite:
 		return c, errors.New("sqlite not supported")
 	}
 	c.address = address
