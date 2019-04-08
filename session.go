@@ -15,9 +15,10 @@ type UserSession struct {
 	UserID int
 }
 
-func CreateUserSession(cookie *http.Cookie, secret_key_base []byte, sql_connection SqlConnection) (user UserSession, err error) {
+func CreateUserSession(cookie *http.Cookie, secret_key_base []byte, sql_connection SqlConnection) (user UserSession, uh_oh error) {
 	var u UserSession
-	c, uh_oh := railscookie.DecryptAndVerify(cookie, secret_key_base)
+	var c []byte
+	c, uh_oh = railscookie.DecryptAndVerify(cookie, secret_key_base)
 	if uh_oh != nil {return u, uh_oh}
 	var msg UserSession
 	uh_oh = json.Unmarshal(c, &msg)
