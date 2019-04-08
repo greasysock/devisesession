@@ -1,7 +1,6 @@
 package devisesession
 
 import (
-	//"railscookie"
 	"errors"
 )
 
