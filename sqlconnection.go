@@ -9,6 +9,7 @@ type SqlUser struct {
 	password string
 }
 
+// Structure for keeping track of sql session for all sql queries for the session
 type SqlConnection struct {
 	address string
 	port int16
